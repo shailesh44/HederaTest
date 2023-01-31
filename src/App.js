@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useState } from 'react';
 
-import {contractSign, pairHashpack, contractSend, contractwithclient} from './hashconnect'
+import {approval,Mint, pairHashpack,  payableFn, readFn, readGetFn, writeFn, nftSmartContract, readLXP, createMarketItem} from './hashconnect'
+// import {Mint} from './basicnft'
 
 function App() {
   const [pairingString, setPairingString] = useState('')
@@ -20,10 +21,24 @@ function App() {
 <button onClick={async () => {
           const saveData = await pairHashpack()
           setPairingString(saveData.pairingString)
-        }}>Pair wallet</button>
-        <button onClick={contractSend}>Send HBAR</button>
-<button onClick={contractSign}>Interaction</button>
-<button onClick={contractwithclient}>InteractionWith client</button>      
+        }}>Pair wallet</button>     
+<br></br>
+<button onClick={payableFn}>Send HBAR Payable</button>
+<button onClick={readFn}>Read FN</button>
+<button onClick={readGetFn}>Read get Fn </button>
+<br></br>
+<button onClick={writeFn}>WriteFn </button>
+<br></br>
+<button onClick={nftSmartContract}>CreateNFT smart contract </button>
+<br></br>
+<button onClick={readLXP}>smart contract address </button>
+
+<br></br>
+<button onClick={Mint}>Mint NFT</button>
+<br></br>
+<button onClick={approval}>approval</button>
+<br></br>
+<button onClick={createMarketItem}>Create Market Item</button>
 </div>
     )
 }
